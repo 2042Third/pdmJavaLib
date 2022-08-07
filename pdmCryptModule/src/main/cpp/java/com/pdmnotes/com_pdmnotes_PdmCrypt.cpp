@@ -35,9 +35,14 @@ extern "C" JNIEXPORT jstring JNICALL Java_com_pdmnotes_PdmCrypt_help
 }
 extern "C" JNIEXPORT jstring JNICALL Java_com_pdmnotes_PdmCrypt_loaderCheck
         (JNIEnv *env, jobject thiz, jstring a, jstring b){
+
     std::string k = env->GetStringUTFChars(a, NULL);
     std::string bi = env->GetStringUTFChars(b, NULL);
     std::string ao = loader_check(k,bi);
+//    std::cout << "ENC" << std::endl;
+//    std::cout << "ps : " << k << std::endl;
+//    std::cout << "in : " << bi << std::endl;
+//    std::cout << "out: " << ao << std::endl;
     return env->NewStringUTF(ao.data());
 }
 extern "C" JNIEXPORT jstring JNICALL Java_com_pdmnotes_PdmCrypt_loaderOut
@@ -45,5 +50,9 @@ extern "C" JNIEXPORT jstring JNICALL Java_com_pdmnotes_PdmCrypt_loaderOut
     std::string k = env->GetStringUTFChars(a, NULL);
     std::string bi = env->GetStringUTFChars(b, NULL);
     std::string ao = loader_out(k,bi);
+//    std::cout << "DEC" << std::endl;
+//    std::cout << "ps : " << k << std::endl;
+//    std::cout << "in : " << bi << std::endl;
+//    std::cout << "out: " << ao << std::endl;
     return env->NewStringUTF(ao.data());
 }
