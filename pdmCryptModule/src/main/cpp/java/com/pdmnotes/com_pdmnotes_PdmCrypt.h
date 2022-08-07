@@ -13,14 +13,14 @@ extern "C" {
  * Signature: ()V
  */
 JNIEXPORT jstring JNICALL Java_com_pdmnotes_PdmCrypt_help
-        (JNIEnv *, jobject, jstring a);
+        (JNIEnv *, jobject, jstring );
 /*
 * Class:     com_pdmnotes_PdmCrypt
 * Method:    getHash
 * Signature: ()V
 */
 JNIEXPORT jstring JNICALL Java_com_pdmnotes_PdmCrypt_getHash
-        (JNIEnv *, jobject, jstring a);
+        (JNIEnv *, jobject, jstring );
 //JNIEXPORT void JNICALL Java_com_pdmnotes_PdmCrypt_getHash
 //(JNIEnv *, jobject);
 

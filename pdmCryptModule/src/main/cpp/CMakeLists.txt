@@ -78,7 +78,7 @@ target_compile_definitions(emppl PUBLIC ANDROID LINUX )
 add_library(
         c20
         SHARED
-        ${PDM_CURRENT_DIR}/../java/com/pdmnotes/com_pdmnotes_PdmCrypt.c
+        ${PDM_CURRENT_DIR}/../java/com/pdmnotes/com_pdmnotes_PdmCrypt.cpp
         )
 target_include_directories(
         c20
