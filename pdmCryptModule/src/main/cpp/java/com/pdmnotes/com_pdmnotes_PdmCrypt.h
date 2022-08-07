@@ -21,6 +21,10 @@ JNIEXPORT jstring JNICALL Java_com_pdmnotes_PdmCrypt_help
 */
 JNIEXPORT jstring JNICALL Java_com_pdmnotes_PdmCrypt_getHash
         (JNIEnv *, jobject, jstring );
+JNIEXPORT jstring JNICALL Java_com_pdmnotes_PdmCrypt_loader_check
+        (JNIEnv *, jobject, jstring , jstring);
+JNIEXPORT jstring JNICALL Java_com_pdmnotes_PdmCrypt_loader_out
+        (JNIEnv *, jobject, jstring , jstring);
 //JNIEXPORT void JNICALL Java_com_pdmnotes_PdmCrypt_getHash
 //(JNIEnv *, jobject);
 
