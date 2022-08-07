@@ -9,11 +9,18 @@ extern "C" {
 #endif
 /*
  * Class:     com_pdmnotes_PdmCrypt
- * Method:    getHash
+ * Method:    help
  * Signature: ()V
  */
+JNIEXPORT jstring JNICALL Java_com_pdmnotes_PdmCrypt_help
+        (JNIEnv *, jobject, jstring a);
+/*
+* Class:     com_pdmnotes_PdmCrypt
+* Method:    getHash
+* Signature: ()V
+*/
 JNIEXPORT jstring JNICALL Java_com_pdmnotes_PdmCrypt_getHash
-(JNIEnv *, jobject, jstring a);
+        (JNIEnv *, jobject, jstring a);
 //JNIEXPORT void JNICALL Java_com_pdmnotes_PdmCrypt_getHash
 //(JNIEnv *, jobject);
 

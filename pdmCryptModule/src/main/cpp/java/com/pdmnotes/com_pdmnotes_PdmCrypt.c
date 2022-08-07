@@ -6,12 +6,28 @@
 #include "com_pdmnotes_PdmCrypt.h"
 #include <stdio.h>
 
+// PDM imports
+#include "cc20_wrapper.h"
+
 #define STRING_RETURN "Hello world!"
 #define STRING_CALLBACK "Hello world callback!"
 #define STRING_CALLBACK_STATIC "Hello world static callback!"
 #define STRING_PAYLOAD "Simple payload string"
 
 JNIEXPORT jstring JNICALL Java_com_pdmnotes_PdmCrypt_getHash
+        (JNIEnv *env, jobject thiz, jstring a){
+    const char* str = (*env)->GetStringUTFChars(env,
+                                                (jstring) a,
+                                                NULL);
+    jint i_size = ((*env)->GetStringLength(env,a)) ;
+    char out[i_size*10];
+    hash_wrap(str,(long int) i_size, out);
+    jstring jout = (*env)->NewStringUTF(env,out);
+    printf("SHA3:\n \tInput: %s \n \t \t output: %s \n",str,jout);
+    return (*env)->NewStringUTF(env,out);
+}
+
+JNIEXPORT jstring JNICALL Java_com_pdmnotes_PdmCrypt_help
         (JNIEnv *env, jobject thiz, jstring a){
     // get the class of an object
     jclass cls_foo = (*env)->GetObjectClass(env, thiz);
@@ -80,7 +96,7 @@ JNIEXPORT jstring JNICALL Java_com_pdmnotes_PdmCrypt_getHash
                                              (jstring) resultString,
                                                 NULL);
     // print returned string
-    printf("%s", str);
+    printf("This is realy from C %s", str);
     (*env)->ReleaseStringUTFChars(env, resultString, str);
     (*env)->DeleteLocalRef(env, jStringPayload);
     (*env)->DeleteLocalRef(env, arraylist);
