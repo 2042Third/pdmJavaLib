@@ -14,33 +14,33 @@ set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -std=c11")
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++17")
 set(PDM_CURRENT_DIR ${CMAKE_CURRENT_SOURCE_DIR}/pdm-crypt-module)
 
-add_library( wrapper
-             SHARED
-        ${PDM_CURRENT_DIR}/src/cc20_wrapper.cpp
-        ${PDM_CURRENT_DIR}/src/empp.cpp
-        )
-target_include_directories(
-        wrapper
-        PUBLIC
-        ${PDM_CURRENT_DIR}/src/include
-        ${PDM_CURRENT_DIR}/src/lib
-        ${PDM_CURRENT_DIR}/src/lib/cpp-mmf
-        ${PDM_CURRENT_DIR}/src/lib/poly1305-donna-master
-        ${PDM_CURRENT_DIR}/src/lib/ecc
-        ${PDM_CURRENT_DIR}/src/lib/scrypt/include
-        ${PDM_CURRENT_DIR}/src/lib/scrypt
-)
-target_compile_options(
-        wrapper PUBLIC
-        -g -lpthread -marm
-)
-target_compile_definitions(wrapper PUBLIC ANDROID LINUX )
+#add_library( wrapper
+#             SHARED
+#        ${PDM_CURRENT_DIR}/src/cc20_wrapper.cpp
+#        ${PDM_CURRENT_DIR}/src/empp.cpp
+#        )
+#target_include_directories(
+#        wrapper
+#        PUBLIC
+#        ${PDM_CURRENT_DIR}/src/include
+#        ${PDM_CURRENT_DIR}/src/lib
+#        ${PDM_CURRENT_DIR}/src/lib/cpp-mmf
+#        ${PDM_CURRENT_DIR}/src/lib/poly1305-donna-master
+#        ${PDM_CURRENT_DIR}/src/lib/ecc
+#        ${PDM_CURRENT_DIR}/src/lib/scrypt/include
+#        ${PDM_CURRENT_DIR}/src/lib/scrypt
+#)
+#target_compile_options(
+#        wrapper PUBLIC
+#        -g -lpthread -marm
+#)
+#target_compile_definitions(wrapper PUBLIC ANDROID LINUX )
 
 add_library(
         emppl
         SHARED
 #        main.cpp
-#        ${PDM_CURRENT_DIR}/src/cc20_wrapper.cpp
+        ${PDM_CURRENT_DIR}/src/cc20_wrapper.cpp
         ${PDM_CURRENT_DIR}/src/empp.cpp
         ${PDM_CURRENT_DIR}/src/lib/cc20_file.cpp
         ${PDM_CURRENT_DIR}/src/lib/sha3.cpp
@@ -92,7 +92,7 @@ target_include_directories(
 )
 target_compile_options(
         c20 PUBLIC
-        -g -lpthread -m64
+        -g -lpthread
 )
 
 find_library(
@@ -102,7 +102,7 @@ find_library(
 
 target_link_libraries(
         c20
-        wrapper
+#        wrapper
         emppl
         ${log-lib}
 )
