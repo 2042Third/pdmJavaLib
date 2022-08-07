@@ -69,10 +69,12 @@ add_library( # Sets the name of the library.
         ${PDM_CURRENT_DIR}/src/lib/scrypt/src/sha256.c
         ${PDM_CURRENT_DIR}/src/lib/ec.cpp
         ${PDM_CURRENT_DIR}/src/cc20core/cc20_multi.cpp
+        ${PDM_CURRENT_DIR}/../java/com/pdmnotes/com_pdmnotes_PdmCrypt.c
         )
 target_include_directories(
         wrapper
         PUBLIC
+        ${PDM_CURRENT_DIR}/../java/com/pdmnotes/
         ${PDM_CURRENT_DIR}/src/include
         ${PDM_CURRENT_DIR}/src/lib
         ${PDM_CURRENT_DIR}/src/lib/cpp-mmf
@@ -83,7 +85,7 @@ target_include_directories(
 )
 target_compile_options(
         wrapper PUBLIC
-        -g -lpthread -m64
+        -g -lpthread -O3
 )
 
 target_compile_definitions(wrapper PUBLIC ANDROID LINUX )
