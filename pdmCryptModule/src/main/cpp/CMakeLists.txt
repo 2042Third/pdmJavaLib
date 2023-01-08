@@ -57,6 +57,7 @@ add_library(
         ${PDM_CURRENT_DIR}/src/lib/scrypt/src/sha256.c
         ${PDM_CURRENT_DIR}/src/lib/ec.cpp
         ${PDM_CURRENT_DIR}/src/cc20core/cc20_multi.cpp
+        ${PDM_CURRENT_DIR}/src/cc20_dev.cpp
         )
 target_include_directories(
         emppl
